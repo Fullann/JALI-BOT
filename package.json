@@ -1,0 +1,33 @@
+{
+  "name": "yuki-jali-bot",
+  "version": "1.8.0",
+  "description": "Bot de gestion de serveur pour discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "setup": "npm i && npm update"
+  },
+  "keywords": [],
+  "author": "Fullann",
+  "license": "ISC",
+  "dependencies": {
+    "canvacord": "^5.0.8",
+    "canvas": "^2.7.0",
+    "common-tags": "^1.8.0",
+    "discord-player": "^3.4.0",
+    "discord-temp-channels": "^1.0.5",
+    "discord.js": "^12.5.1",
+    "dotenv": "^14.2.0",
+    "ffmpeg-static": "^4.2.8",
+    "he": "^1.2.0",
+    "isgd": "^1.1.3",
+    "jimp": "^0.16.1",
+    "mathjs": "^9.1.0",
+    "mysql": "^2.18.1",
+    "node-bypasser": "^1.8.0",
+    "node-fetch": "^2.6.1",
+    "random-puppy": "^1.1.0",
+    "snekfetch": "^4.0.4",
+    "ytdl-core": "^4.5.0"
+  }
+}
