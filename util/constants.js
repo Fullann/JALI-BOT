@@ -1,13 +1,13 @@
 const fetch = require('node-fetch');
-let commands;
 
-const loadCommandName = async (client) => {
-    const response = await fetch(`${client.config.api}/commands`);
-    commands = await response.json();
-    console.log(commands.MESSAGES.COMMANDS.ADMIN.ADDMONNEY)
+const loadCommandName = (client, callback) => {
+    fetch(`${client.config.api}/commands`)
+        .then(res => res.json())
+        .then(r => callback(r));
 }
 
+
+
 module.exports = {
-    loadCommandName,
-    commands,
+    loadCommandName
 }

@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const { exec } = require('child_process');
 const Discord = require('discord.js');
 
@@ -61,4 +61,4 @@ module.exports.run = async (client,message,args) =>{
 	});
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.EXECUTE;   
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.EXECUTE;   

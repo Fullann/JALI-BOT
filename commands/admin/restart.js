@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants");
+const {exportsCommandName} = require("../../util/loader");
 
 module.exports.run = async (bot,message,args) =>{
   await message.delete();
@@ -8,4 +8,4 @@ module.exports.run = async (bot,message,args) =>{
   process.exit();
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.RESTART;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.RESTART;

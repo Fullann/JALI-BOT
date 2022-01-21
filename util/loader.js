@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { loadCommandName } = require("./constants");
+let commands = null;
 
 //On charge tous les events dans le client
 const loadEvents = (client, dir = "./events/") => {
@@ -15,20 +17,22 @@ const loadEvents = (client, dir = "./events/") => {
 
 //On charge tous les commandes dans le client
 const loadCommands = (client, dir = "./commands/") => {
-  //On regarde dans chaque dossier
-  fs.readdirSync(dir).forEach(dirs => {
-    const commands = fs.readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
-    client.commandsNumber += commands.length;
-    for (const file of commands) {
-      const getFileName = require(`../${dir}/${dirs}/${file}`);
-      const cmdName = getFileName.help.name;
-      client.commands.set(cmdName, getFileName);
-      getFileName.help.aliases.forEach(alias => {
-        client.aliases.set(alias, cmdName);
-      });
-
-    };
+  loadCommandName(client, function (json) {
+    commands = json;
+    //On regarde dans chaque dossier
+    fs.readdirSync(dir).forEach(dirs => {
+      const commands = fs.readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
+      for (const file of commands) {
+        const getFileName = require(`../${dir}/${dirs}/${file}`);
+        const cmdName = getFileName.help.name;
+        client.commands.set(cmdName, getFileName);
+        getFileName.help.aliases.forEach(alias => {
+          client.aliases.set(alias, cmdName);
+        });
+      };
+    });
   });
+
 }
 
 //On charge tous les events du player dans le client
@@ -40,8 +44,13 @@ const loadPlayer = (client, dir = "./events/player") => {
   };
 }
 
+function exportsCommandName() {
+  return commands;
+}
+
 module.exports = {
   loadEvents,
   loadCommands,
   loadPlayer,
+  exportsCommandName,
 }

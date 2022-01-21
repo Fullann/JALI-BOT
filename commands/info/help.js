@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message, args, settings) => {
     if (!args.length) {
@@ -83,5 +83,5 @@ module.exports.run = async (bot, message, args, settings) => {
         return message.channel.send(embed)
     }
 }
-module.exports.help = MESSAGES.COMMANDS.INFO.HELP;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.INFO.HELP;
 

@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const {MessageEmbed} = require("discord.js")
 const Discord = require('discord.js');
 
@@ -24,4 +24,4 @@ module.exports.run = async (client,message,args) =>{
 	message.channel.send(`${client.emotes.success} -  la commande \`${command.help.name}\` a été redémarée`);
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.RELOAD;   
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.RELOAD;   

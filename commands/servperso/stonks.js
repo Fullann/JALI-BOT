@@ -1,6 +1,6 @@
 const Canvas = require("canvas")
 const Discord = require("discord.js")
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args) => {
 
@@ -43,5 +43,5 @@ module.exports.run = async (bot,message,args) => {
     
       return message.channel.send(stonks);
 }
-module.exports.help = MESSAGES.COMMANDS.SERVPERSO.STONKS;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.SERVPERSO.STONKS;
    

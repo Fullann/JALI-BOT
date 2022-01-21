@@ -1,4 +1,4 @@
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, settings, settingsUser) => {
@@ -39,4 +39,4 @@ module.exports.run = async (bot, message, args, settings, settingsUser) => {
 
 }
 
-module.exports.help = MESSAGES.COMMANDS.MODE.CLEAR;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MODE.CLEAR;

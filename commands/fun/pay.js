@@ -1,4 +1,4 @@
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message, args, settings, settingsUser,translate) => {
 
@@ -25,4 +25,4 @@ module.exports.run = async (bot, message, args, settings, settingsUser,translate
 
 }
 
-module.exports.help = MESSAGES.COMMANDS.FUN.PAY;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.FUN.PAY;

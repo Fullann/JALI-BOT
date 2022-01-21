@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args) =>{
 
@@ -9,4 +9,4 @@ module.exports.run = async (bot,message,args) =>{
         return message.channel.send(`${bot.config.emojis.success} - Liste des musiques a étée mélagée !`);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MUSIC.SHUFFLE;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MUSIC.SHUFFLE;

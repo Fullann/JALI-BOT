@@ -1,6 +1,6 @@
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message, args, settings, settingsUser) => {
 
 };
-module.exports.help = MESSAGES.COMMANDS.ADMIN.TEST;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.TEST;

@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (client,message,args) =>{
     let uses = args[0];
@@ -43,4 +43,4 @@ module.exports.run = async (client,message,args) =>{
 	});
 }
 
-module.exports.help = MESSAGES.COMMANDS.UTILS.INVITE;   
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.UTILS.INVITE;   

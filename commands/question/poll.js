@@ -1,4 +1,4 @@
-    const {MESSAGES} = require("../../util/constants")
+    const {exportsCommandName} = require("../../util/loader")
     const discord = require('discord.js');
     const { isNumeric } = require("mathjs");
     
@@ -137,4 +137,4 @@
     }
 
 
-module.exports.help = MESSAGES.COMMANDS.QUEST.POLL;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.QUEST.POLL;

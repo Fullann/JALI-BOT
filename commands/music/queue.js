@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args) =>{
 
@@ -13,4 +13,4 @@ module.exports.run = async (bot,message,args) =>{
         }).slice(0, 10).join('\n') + `\n\n${queue.tracks.length > 10 ? `Et **${queue.tracks.length - 10}** autre musique...` : `Dans la liste **${queue.tracks.length}** musique(s) - Temps total **${totalTime}** minutes`}`));
 };
 
-module.exports.help = MESSAGES.COMMANDS.MUSIC.QUEUE;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MUSIC.QUEUE;

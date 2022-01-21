@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args,settings,settingsUser,queue) => {
   
@@ -23,4 +23,4 @@ module.exports.run = async (bot,message,args,settings,settingsUser,queue) => {
   message.channel.send(embed);
 }
 
-module.exports.help = MESSAGES.COMMANDS.SERVPERSO.LOVE;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.SERVPERSO.LOVE;

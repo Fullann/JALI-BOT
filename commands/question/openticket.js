@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = (client, message, args) => {
     message.delete();
@@ -17,4 +17,4 @@ module.exports.run = (client, message, args) => {
 
 }
 
-module.exports.help = MESSAGES.COMMANDS.QUEST.OPENTICKET;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.QUEST.OPENTICKET;

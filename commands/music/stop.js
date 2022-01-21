@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message) =>{
 
@@ -10,4 +10,4 @@ module.exports.run = async (bot,message) =>{
         message.channel.send(`${bot.config.emojis.success} - Musique **arrêtée** !`);
 };
 
-module.exports.help = MESSAGES.COMMANDS.MUSIC.STOP;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MUSIC.STOP;

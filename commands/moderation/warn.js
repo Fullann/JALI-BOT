@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message, args, settings) => {
     //On récupere la personne mentionner
@@ -43,4 +43,4 @@ module.exports.run = async (bot, message, args, settings) => {
     }
 }
 
-module.exports.help = MESSAGES.COMMANDS.MODE.WARN;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MODE.WARN;

@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run =  async (bot,message,args,settings,settingsUser) => {
 
@@ -20,4 +20,4 @@ module.exports.run =  async (bot,message,args,settings,settingsUser) => {
     message.channel.send(`${bot.config.emojis.success} - ${kickUser} a bien été kick`)
 }
 
-module.exports.help = MESSAGES.COMMANDS.MODE.KICK;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MODE.KICK;

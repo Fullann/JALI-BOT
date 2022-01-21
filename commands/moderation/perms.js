@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args) =>{
     let perms = message.member.permissions;
@@ -12,4 +12,4 @@ module.exports.run = async (bot,message,args) =>{
      message.channel.send(messageReturn)
 }
 
-module.exports.help = MESSAGES.COMMANDS.MODE.PERMS;   
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MODE.PERMS;   

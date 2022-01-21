@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const he = require('he');
 
 module.exports.run = async (bot,message,args) =>{
@@ -7,4 +7,4 @@ module.exports.run = async (bot,message,args) =>{
     message.channel.send(`${bot.config.emojis.success} - La liste ${args[0]} a bien étée supprimée`)
 }
 
-module.exports.help = MESSAGES.COMMANDS.ROLE.RDELETE;  
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ROLE.RDELETE;  

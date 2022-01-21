@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const he = require('he');
 const Discord = require('discord.js');
 
@@ -20,4 +20,4 @@ module.exports.run = async (bot,message,args) =>{
       }
 }
 
-module.exports.help = MESSAGES.COMMANDS.ROLE.CEMBED;  
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ROLE.CEMBED;  

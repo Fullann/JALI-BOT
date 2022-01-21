@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args,settings,settingsUser,translate) => {
     let i = 0;
@@ -21,4 +21,4 @@ module.exports.run = async (bot,message,args,settings,settingsUser,translate) =>
     message.channel.send(embed);
 }
 
-exports.help = MESSAGES.COMMANDS.FUN.LEADERBOARD;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.FUN.LEADERBOARD;

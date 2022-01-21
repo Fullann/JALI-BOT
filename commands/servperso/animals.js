@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args,settings,settingsUser,queue) => {
   
@@ -62,4 +62,4 @@ else if(reaction.emoji.name === '🦊') {
   }
 }
 
-module.exports.help = MESSAGES.COMMANDS.SERVPERSO.ANIMALS;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.SERVPERSO.ANIMALS;

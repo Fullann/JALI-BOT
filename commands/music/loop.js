@@ -1,4 +1,4 @@
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message) => {
 
@@ -12,4 +12,4 @@ module.exports.run = async (bot, message) => {
     };
 };
 
-module.exports.help = MESSAGES.COMMANDS.MUSIC.LOOP;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MUSIC.LOOP;

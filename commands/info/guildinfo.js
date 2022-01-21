@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message, args, settings, settingsUser, translate) => {
 
@@ -29,5 +29,5 @@ module.exports.run = async (bot, message, args, settings, settingsUser, translat
     message.channel.send(translate("SEND_MP",bot));
 }
 
-module.exports.help = MESSAGES.COMMANDS.INFO.GUILDINFO;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.INFO.GUILDINFO;
 

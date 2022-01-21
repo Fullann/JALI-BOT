@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (client,message,args) =>{
     for (i = 0; i < args[0]; i++) {
@@ -7,4 +7,4 @@ module.exports.run = async (client,message,args) =>{
     }
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.SPAM; 
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.SPAM; 

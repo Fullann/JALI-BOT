@@ -1,4 +1,4 @@
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const Discord = require("discord.js");
 const canvacord = require("canvacord");
 
@@ -35,4 +35,4 @@ module.exports.run = async (bot, message, args, settings, settingsUser) => {
         })
     });
 }
-module.exports.help = MESSAGES.COMMANDS.FUN.XP;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.FUN.XP;

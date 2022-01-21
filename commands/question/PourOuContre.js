@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const {MessageEmbed} = require("discord.js")
 
 module.exports.run = async (bot,message,args) =>{
@@ -62,5 +62,5 @@ module.exports.run = async (bot,message,args) =>{
 }
 
 
-module.exports.help = MESSAGES.COMMANDS.QUEST.LIKEORDISLIKE;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.QUEST.LIKEORDISLIKE;
     

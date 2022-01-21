@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
-const { MESSAGES } = require("../../util/constants");
+const {exportsCommandName} = require("../../util/loader");
 
 module.exports.run = async (bot, message, args, settings, User, translate) => {
 
@@ -51,4 +51,4 @@ module.exports.run = async (bot, message, args, settings, User, translate) => {
     message.channel.send(translate("SEND_MP",bot));
 }
 
-module.exports.help = MESSAGES.COMMANDS.INFO.USERINFO;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.INFO.USERINFO;

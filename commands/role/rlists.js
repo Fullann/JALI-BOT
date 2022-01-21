@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const Discord = require('discord.js');
 
 module.exports.run = async (bot,message,args) =>{
@@ -16,4 +16,4 @@ module.exports.run = async (bot,message,args) =>{
     message.channel.send(embed);
 }
 
-module.exports.help = MESSAGES.COMMANDS.ROLE.CLISTS;  
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ROLE.CLISTS;  

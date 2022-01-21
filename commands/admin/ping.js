@@ -1,5 +1,5 @@
 const { stripIndents } = require('common-tags');
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message) => {
   const msg = await message.channel.send(`🏓 Pinging....`);
@@ -17,4 +17,4 @@ module.exports.run = async (bot, message) => {
   );
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.PING;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.PING;

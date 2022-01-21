@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args) => {
 
@@ -19,4 +19,4 @@ module.exports.run = async (bot,message,args) => {
     message.channel.send(`${bot.config.emojis.success} - ${banUser.user.tag} a été banni pour :\n\`${banReason}\``)
 }
 
-module.exports.help = MESSAGES.COMMANDS.MODE.BAN;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MODE.BAN;

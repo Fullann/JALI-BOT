@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const {getPokemon} = require("../../util/pokemon")
 const {MessageEmbed} = require("discord.js")
 
@@ -33,5 +33,5 @@ module.exports.run = async (bot, message, args, settings, settingsUser,translate
 }
 
 
-module.exports.help = MESSAGES.COMMANDS.FUN.POKEMON;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.FUN.POKEMON;
     

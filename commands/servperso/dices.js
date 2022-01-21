@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const randomDice = () => Math.floor(Math.random() *6) + 1;
 
 module.exports.run = async (client,message,args,settings,settingsUser) => {
@@ -21,4 +21,4 @@ module.exports.run = async (client,message,args,settings,settingsUser) => {
     
 }
 
-module.exports.help = MESSAGES.COMMANDS.SERVPERSO.DICES;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.SERVPERSO.DICES;

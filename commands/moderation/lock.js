@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const ms = require('ms');
 
 module.exports.run = async (client,message,args) =>{
@@ -39,4 +39,4 @@ module.exports.run = async (client,message,args) =>{
 	}
 }
 
-module.exports.help = MESSAGES.COMMANDS.MODE.LOCK;   
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MODE.LOCK;   

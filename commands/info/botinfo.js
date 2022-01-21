@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message, args, settings, settingsUser, translate) => {
 
@@ -36,5 +36,5 @@ module.exports.run = async (bot, message, args, settings, settingsUser, translat
 
 }
 
-module.exports.help = MESSAGES.COMMANDS.INFO.BOTINFO;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.INFO.BOTINFO;
 

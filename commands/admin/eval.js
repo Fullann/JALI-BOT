@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (client,message,args) =>{
   var time = Date.now();
@@ -34,5 +34,5 @@ module.exports.run = async (client,message,args) =>{
 	}
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.EVAL;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.EVAL;
     

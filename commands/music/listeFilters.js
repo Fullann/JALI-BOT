@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args) =>{
 
@@ -24,4 +24,4 @@ module.exports.run = async (bot,message,args) =>{
         });
 };
 
-module.exports.help = MESSAGES.COMMANDS.MUSIC.WFILTER;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MUSIC.WFILTER;

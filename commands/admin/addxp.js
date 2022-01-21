@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args,settings,settingsUser,translate) =>{
     const user = await bot.getMember(message, args[0]);
@@ -9,4 +9,4 @@ module.exports.run = async (bot,message,args,settings,settingsUser,translate) =>
     message.channel.send(translate("ADD_XP_SUCCESS",bot,xpToAdd,user))
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.ADDXP;   
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.ADDXP;   

@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args) =>{
 
@@ -17,4 +17,4 @@ module.exports.run = async (bot,message,args) =>{
         if (filtersUpdated[filterToUpdate]) message.channel.send(`${bot.config.emojis.music} - Ce filtre a été ajouter.`);
         else message.channel.send(`${bot.config.emojis.music} - Ce filtre a été enlevé.`);
 };
-module.exports.help = MESSAGES.COMMANDS.MUSIC.FILTER;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.MUSIC.FILTER;

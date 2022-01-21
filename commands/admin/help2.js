@@ -1,5 +1,5 @@
 const { MessageEmbed} = require("discord.js");
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot,message,args,settings) => {
         if (args[0]) {
@@ -43,4 +43,4 @@ module.exports.run = async (bot,message,args,settings) => {
         return message.channel.send(embed.setColor("GREEN").setDescription(info));
     }  
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.HELP2;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.ADMIN.HELP2;

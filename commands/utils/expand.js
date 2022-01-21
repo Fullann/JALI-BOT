@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 const Bypasser = require('node-bypasser');
 
 module.exports.run = async (client,message,args) =>{
@@ -14,4 +14,4 @@ module.exports.run = async (client,message,args) =>{
 	});
 }
 
-module.exports.help = MESSAGES.COMMANDS.UTILS.EXPAND;   
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.UTILS.EXPAND;   

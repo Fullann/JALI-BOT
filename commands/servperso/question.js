@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { MESSAGES } = require("../../util/constants")
+const {exportsCommandName} = require("../../util/loader")
 
 module.exports.run = async (bot, message, args, settings, settingsUser) => {
 
@@ -18,4 +18,4 @@ module.exports.run = async (bot, message, args, settings, settingsUser) => {
     message.channel.send(askEMBED);
 }
 
-module.exports.help = MESSAGES.COMMANDS.SERVPERSO.ASK;
+module.exports.help = exportsCommandName().MESSAGES.COMMANDS.SERVPERSO.ASK;
