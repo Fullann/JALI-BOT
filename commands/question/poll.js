@@ -30,8 +30,8 @@
         let embed = new discord.MessageEmbed()
         .setTitle(`Sondage crée par ${message.author.username}`)
         .addField("Appuyez sur les réactions ci-dessous pour :",`
-            ${bot.emotes.success} - Valider le questionnaire
-            ${bot.emotes.off} - Supprimer le questionnaire
+            ${bot.config.emojis.success} - Valider le questionnaire
+            ${bot.config.emojis.off} - Supprimer le questionnaire
     
             `)
             for (let i = 0; i < pollOptions.length; i++) {

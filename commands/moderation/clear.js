@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, settings, settingsUser) => {
     }
 
     if (isNaN(args[0]) || parseInt(args[0]) <= 0) {
-        return message.reply(`${bot.emotes.error} - Ce n'est pas un chiffre`);
+        return message.reply(`${bot.config.emojis.error} - Ce n'est pas un chiffre`);
     }
 
     let deleteAmount;

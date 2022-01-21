@@ -3,7 +3,7 @@ const he = require('he');
 
 module.exports.run = async (bot,message,args) =>{
     let roleList = await bot.getListRole(message.guild,args[0]);
-    if(roleList) return message.channel.send(`${bot.emotes.error} - Il existe déja un message réaction avec ce nom`)
+    if(roleList) return message.channel.send(`${bot.config.emojis.error} - Il existe déja un message réaction avec ce nom`)
     /**
      * Création de la liste de role
      */
@@ -31,10 +31,10 @@ module.exports.run = async (bot,message,args) =>{
               await bot.updateListRole(message.guild,args[0], { $push:{ listRole: role }})
         }
         else{
-            message.channel.send(`${bot.emotes.error} - Le message ${rolel} n'${i} n'est pas sous le bon format.\nIl ne sera pas pris en compte.`)
+            message.channel.send(`${bot.config.emojis.error} - Le message ${rolel} n'${i} n'est pas sous le bon format.\nIl ne sera pas pris en compte.`)
         }
     }
-    message.channel.send(`${bot.emotes.success} - votre message réaction a été enregistrer`)
+    message.channel.send(`${bot.config.emojis.success} - votre message réaction a été enregistrer`)
      
     
     function getOptions(collector) {

@@ -2,7 +2,7 @@ const {MESSAGES} = require("../../util/constants")
 
 module.exports.run = async (bot,message,args) =>{
 
-    if (!bot.player.getQueue(message)) return message.channel.send(`${bot.emotes.error} - Aucune musique n'est lancée !`);
+    if (!bot.player.getQueue(message)) return message.channel.send(`${bot.config.emojis.error} - Aucune musique n'est lancée !`);
 
         const track = bot.player.nowPlaying(message);
         const filters = [];
@@ -20,7 +20,7 @@ module.exports.run = async (bot,message,args) =>{
 
                     { name: 'Views', value: track.views, inline: true },
                     { name: 'Duration', value: track.duration, inline: true },
-                    { name: 'Filtre activé', value: filters.length + '/' + bot.filters.length, inline: true },
+                    { name: 'Filtre activé', value: filters.length + '/' + bot.config.filters.length, inline: true },
 
                     { name: 'Volume', value: bot.player.getQueue(message).volume, inline: true },
                     { name: 'Répétition', value: bot.player.getQueue(message).repeatMode ? 'Yes' : 'No', inline: true },

@@ -1,21 +1,4 @@
 module.exports = (bot) => {
-
-  /**
-   * Load des fonction pour la guild et les user
-   */
-  require("./database/guild")(bot);
-  require("./database/user")(bot);
-  //require("./database/role")(bot);
-
-  /**
-   * Supression de tous les users et la guild 
-   * @param {*} guild 
-   */
-  bot.deleteAll = (guild) => {
-    bot.deletesUser(guild);
-    bot.deleteGuild(guild);
-  };
-
   //Pour rps
   bot.promptMessage = async (message, author, time, validReactions) => {
 
@@ -72,7 +55,7 @@ module.exports = (bot) => {
   bot.clean = (client, text) => {
     if (typeof evaled !== 'string') text = require('util').inspect(text, { depth: 0 });
 
-    var t = text
+    const t = text
       .replace(/`/g, '`' + String.fromCharCode(8203))
       .replace(/@/g, '@' + String.fromCharCode(8203))
       .replace(/\n/g, '\n' + String.fromCharCode(8203))
@@ -114,7 +97,7 @@ module.exports = (bot) => {
 
 
   bot.permTranslate = (perms) => {
-    let t = perms
+    return perms
       .replace("CREATE_INSTANT_INVITE","créer une Invitation" )
       .replace("KICK_MEMBERS","expulser des membres" )
       .replace("BAN_MEMBERS","bannir des membres" )
@@ -146,11 +129,10 @@ module.exports = (bot) => {
       .replace("MANAGE_ROLES","gérer les rôles" )
       .replace("MANAGE_WEBHOOKS","gérer les webhooks" )
       .replace("MANAGE_EMOJIS","gérer les émojis" )
-    return t;
   };
 
   bot.translateCType = (channel) =>{
-    let t = channel
+    return channel
     .replace("text","textuel")
     .replace("voice","vocal")
     .replace("category","catégorie")
@@ -158,7 +140,5 @@ module.exports = (bot) => {
     .replace("store","magasin")
     .replace("dm","privé")
     .replace("unknown","inconnu")
-
-    return t
   }
 };

@@ -37,7 +37,7 @@ module.exports = async (bot, guild, user) => {
 
             const embedlog = new MessageEmbed()
                 .setColor(`${bot.config.color.delete}`)
-                .setDescription(`**${bot.emotes.lock} - ${user} a été banni**`)
+                .setDescription(`**${bot.config.emojis.lock} - ${user} a été banni**`)
                 .setTimestamp()
                 .setFooter(`ID : ${user.id}`)
                 .setAuthor(`${user.tag}`, user.displayAvatarURL())

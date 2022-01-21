@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args, settings, settingsUser) => {
         channel1.delete();
         channel2.delete();
 
-        return message.channel.send(`${bot.emotes.success} -  Channels supprimer avec succès`)
+        return message.channel.send(`${bot.config.emojis.success} -  Channels supprimer avec succès`)
     }
 
     //Fonction pour enlever du tableau
@@ -21,8 +21,8 @@ module.exports.run = async (bot, message, args, settings, settingsUser) => {
         }
     }
     //Check
-    if (!message.member.voice.channel) return message.channel.send(`${bot.emotes.error} - Vous n'etes pas dans un channel vocal`);
-    if (message.member.voice.channel.members.first() == message.member.voice.channel.members.last()) return message.channel.send(`${bot.emotes.error} - Vous n'êtes pas assez `);
+    if (!message.member.voice.channel) return message.channel.send(`${bot.config.emojis.error} - Vous n'etes pas dans un channel vocal`);
+    if (message.member.voice.channel.members.first() == message.member.voice.channel.members.last()) return message.channel.send(`${bot.config.emojis.error} - Vous n'êtes pas assez `);
 
     //Création des channel 
     let channel1 = await message.guild.channels.create("Team 1", { type: 'voice', parent: message.member.voice.channel.parent });

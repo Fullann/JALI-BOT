@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot,message,args) =>{
     let listRoles = await bot.getListRole(message.guild,args[0]);
-    if(!listRoles) return message.channel.send(`${bot.emotes.error} - Il n'y a pas de message reaction avec ce nom`);
+    if(!listRoles) return message.channel.send(`${bot.config.emojis.error} - Il n'y a pas de message reaction avec ce nom`);
 
     const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")

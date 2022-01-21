@@ -5,7 +5,7 @@ const {MESSAGES} = require("../../util/constants")
 module.exports.run =  async (bot,message,args,settings,settingsUser) => {
         
     let muteUser = message.mentions.users.first();
-    if(!muteUser) return message.channel.send(`${bot.emotes.error} - L'utilisateur n'existe pas`)
+    if(!muteUser) return message.channel.send(`${bot.config.emojis.error} - L'utilisateur n'existe pas`)
     let muteTime = args[1] || '10min';
     let muteRole = message.guild.roles.cache.find(m => m.name == "muted");
 
@@ -16,7 +16,7 @@ module.exports.run =  async (bot,message,args,settings,settingsUser) => {
     }
     
     await muteUser.roles.add(muteRole.id);
-    message.channel.send(`${bot.emotes.success} - <@${muteUser.id}> est muté pour ${ms(ms(muteTime))}`);
+    message.channel.send(`${bot.config.emojis.success} - <@${muteUser.id}> est muté pour ${ms(ms(muteTime))}`);
 
     let muteEmbed =new Discord.MessageEmbed()
     .setTitle("Mute")
@@ -35,7 +35,7 @@ module.exports.run =  async (bot,message,args,settings,settingsUser) => {
         setTimeout(() =>{
             if(muteUser.roles.cache.has(muteRole.id)){
             muteUser.roles.remove(muteRole.id);
-            message.channel.send(`${bot.emotes.success} - <@${muteUser.id}> n'est plus muet`)
+            message.channel.send(`${bot.config.emojis.success} - <@${muteUser.id}> n'est plus muet`)
             }
         },ms(muteTime))
     

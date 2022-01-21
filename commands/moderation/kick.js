@@ -4,7 +4,7 @@ const {MESSAGES} = require("../../util/constants")
 module.exports.run =  async (bot,message,args,settings,settingsUser) => {
 
     let kickUser = message.mentions.users.first();
-    if(!kickUser) return message.channel.send(`${bot.emotes.error} -  L'utilisateur n'existe pas`)
+    if(!kickUser) return message.channel.send(`${bot.config.emojis.error} -  L'utilisateur n'existe pas`)
     let kickReason = args.join(" ").slice(22) || 'Aucune raison spécifiée';
 
     //kick
@@ -17,7 +17,7 @@ module.exports.run =  async (bot,message,args,settings,settingsUser) => {
     await kickUser.send(`Tu as été kick du serveur ${message.guild.name} pour : ${kickReason}. `)
 
     //On confirme
-    message.channel.send(`${bot.emotes.success} - ${kickUser} a bien été kick`)
+    message.channel.send(`${bot.config.emojis.success} - ${kickUser} a bien été kick`)
 }
 
 module.exports.help = MESSAGES.COMMANDS.MODE.KICK;

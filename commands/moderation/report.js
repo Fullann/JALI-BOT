@@ -4,9 +4,9 @@ const {MESSAGES} = require("../../util/constants")
 module.exports.run =  async (bot,message,args,settings,settingsUser,queue) => {
   
    let reportedUser = message.mentions.users.first();
-   if(!reportedUser) return message.channel.send(`${bot.emotes.error} - L'utilisateur n'existe pas`);
+   if(!reportedUser) return message.channel.send(`${bot.config.emojis.error} - L'utilisateur n'existe pas`);
    let reportedReason = args[1];
-   if(!reportedReason)return message.reply(`${bot.emotes.error} - Veuilliez mettre une raison`)
+   if(!reportedReason)return message.reply(`${bot.config.emojis.error} - Veuilliez mettre une raison`)
    if(reportedUser == message.author.id)return message.reply("T'es sur de vouloir t'auto report ???")
   
    let reportEmbed =new Discord.MessageEmbed()

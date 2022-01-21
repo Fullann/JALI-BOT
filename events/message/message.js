@@ -81,11 +81,11 @@ module.exports = async (bot, message) => {
         if (parseInt(msgCount) === LIMIT) {
           const role = message.guild.roles.cache.get(muteRole.id);
           message.member.roles.add(role);
-          message.channel.send(`${bot.emotes.off} - ${message.author} a été muté pour spam`);
+          message.channel.send(`${bot.config.emojis.off} - ${message.author} a été muté pour spam`);
           //On reset le mute
           setTimeout(() => {
             message.member.roles.remove(role);
-            message.channel.send(`${bot.emotes.success} - ${message.author} a été n'est plus muté`);
+            message.channel.send(`${bot.config.emojis.success} - ${message.author} a été n'est plus muté`);
           }, TIME);
         } else {
           userData.msgCount = msgCount;
@@ -136,14 +136,14 @@ module.exports = async (bot, message) => {
   if (!command) return;
 
   //Check de si la commande est en cours de dev
-  if (command.help.isDev && !bot.checkRole(message.member)) return message.reply(`${bot.emotes.error} - Désolé cette commande n'est pas encore disponible`);
+  if (command.help.isDev && !bot.checkRole(message.member)) return message.reply(`${bot.config.emojis.error} - Désolé cette commande n'est pas encore disponible`);
 
   //Check de si la commande est activée
   if (command.help.isActive && !bot.checkRole(message.member)) return;
 
   //Check de si il y a besoin d'un argument
   if (command.help.args && !args.length) {
-    let replyMessage = `${bot.emotes.error} -  (${message.author}) Il manque un argument.`;
+    let replyMessage = `${bot.config.emojis.error} -  (${message.author}) Il manque un argument.`;
     if (command.help.usage) {
       replyMessage += `\nVous devez utiliser cette commande comme ceci :\`${command.help.usage}\`.`;
     }
@@ -163,17 +163,17 @@ module.exports = async (bot, message) => {
 
     if (timeNow < cdExpirationTime) {
       let timeLeft = (cdExpirationTime - timeNow) / 1000;
-      return message.reply(`${bot.emotes.time} - Merci d'attendre ${timeLeft.toFixed(0)} seconde(s) avant de pouvoir ré-utiliser la commande \`${command.help.name}\`.`)
+      return message.reply(`${bot.config.emojis.time} - Merci d'attendre ${timeLeft.toFixed(0)} seconde(s) avant de pouvoir ré-utiliser la commande \`${command.help.name}\`.`)
     }
   }
   tStamps.set(message.author.id, timeNow);
   setTimeout(() => tStamps.delete(message.author.id), cdAmout);
 
   //Check de la permissions pour BAN
-  if (command.help.permissions && !message.member.hasPermission('BAN_MEMBERS')) return message.reply(`${bot.emotes.error} - Tu n'as pas les permissions pour tapper cette commande.`);
+  if (command.help.permissions && !message.member.hasPermission('BAN_MEMBERS')) return message.reply(`${bot.config.emojis.error} - Tu n'as pas les permissions pour tapper cette commande.`);
 
   //Check de la permissions pour MANAGE
-  if (command.help.permManage && !message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(`${bot.emotes.error} - Tu n'as pas les permissions pour tapper cette commande.`);
+  if (command.help.permManage && !message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(`${bot.config.emojis.error} - Tu n'as pas les permissions pour tapper cette commande.`);
 
 
   //Check si les catégories sont actifs
@@ -194,23 +194,23 @@ module.exports = async (bot, message) => {
 
 
   //Check de si xp est en on
-  if (command.help.xp && settings.guiXp != 1) return message.reply(`${bot.emotes.error} - Le système d'expérience n'est pas actif sur ce serveur.`)
+  if (command.help.xp && settings.guiXp != 1) return message.reply(`${bot.config.emojis.error} - Le système d'expérience n'est pas actif sur ce serveur.`)
 
   //Check de si monney est en on
-  if (command.help.coin && settings.guiCoin != 1) return message.reply(`${bot.emotes.error} - Le système d'argent n'est pas actif sur ce serveur.`)
+  if (command.help.coin && settings.guiCoin != 1) return message.reply(`${bot.config.emojis.error} - Le système d'argent n'est pas actif sur ce serveur.`)
 
   //Check de si warn est en on
-  if (command.help.warn && settings.guiWarn != 1) return message.reply(`${bot.emotes.error} - Le système de warn n'est pas actif sur ce serveur.`)
+  if (command.help.warn && settings.guiWarn != 1) return message.reply(`${bot.config.emojis.error} - Le système de warn n'est pas actif sur ce serveur.`)
 
   //Check de la pesonne sur qui c est executer
   if (message.guild.member(message.mentions.users.first())) {
-    if (command.help.canBeAffected && message.guild.member(message.mentions.users.first()).hasPermission('BAN_MEMBERS')) return message.reply(`${bot.emotes.error} - Tu ne peut pas affecter cette personne avec \`${command.help.name}\``)
+    if (command.help.canBeAffected && message.guild.member(message.mentions.users.first()).hasPermission('BAN_MEMBERS')) return message.reply(`${bot.config.emojis.error} - Tu ne peut pas affecter cette personne avec \`${command.help.name}\``)
   }
   //Check pour la musique
   if (command.help.category === "music") {
-    if (!message.member.voice.channel) return message.channel.send(`${bot.emotes.error} - Vous n'êtes pas dans un channel vocal`);
+    if (!message.member.voice.channel) return message.channel.send(`${bot.config.emojis.error} - Vous n'êtes pas dans un channel vocal`);
 
-    if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${bot.emotes.error} - Vous n'êtes pas dans le channel vocal de ${bot.config.name} !`);
+    if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${bot.config.emojis.error} - Vous n'êtes pas dans le channel vocal de ${bot.config.name} !`);
   }
 
   //Envoie des variables a la commandes tapée

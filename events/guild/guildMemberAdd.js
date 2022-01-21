@@ -42,7 +42,7 @@ module.exports = async (bot, member) => {
             await msg.channel.send(`${msgPvJoin}`);
         }
         else{
-            await msg.channel.send(`${bot.emotes.error} - Le temps est écoulé.`);
+            await msg.channel.send(`${bot.config.emojis.error} - Le temps est écoulé.`);
             await member.kick();
         }
     }
@@ -51,7 +51,7 @@ module.exports = async (bot, member) => {
     if (settings.guiCaptcha == 1) {
         const captcha = await createCaptcha();
         try {
-            const msg = await member.send(`${bot.emotes.time} - Vous avez une minute pour vous valider`, {
+            const msg = await member.send(`${bot.config.emojis.time} - Vous avez une minute pour vous valider`, {
                 files: [{
                     attachment: `${__dirname}/captchas/${captcha}.png`,
                     name: `${captcha}.png`
@@ -77,7 +77,7 @@ module.exports = async (bot, member) => {
                 }
             }
             catch (err) {
-                await msg.channel.send(`${bot.emotes.error} - Le temps est écoulé.`);
+                await msg.channel.send(`${bot.config.emojis.error} - Le temps est écoulé.`);
                 await member.kick();
                 await fs.unlink(`${__dirname}/captchas/${captcha}.png`, (err => { }));
             }

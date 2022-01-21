@@ -4,7 +4,7 @@ const {MESSAGES} = require("../../util/constants")
 module.exports.run =  async (bot,message,args,settings,settingsUser,queue) => {
         
     let muteUser = amessage.mentions.users.first();
-    if(!muteUser) return message.channel.send(`${bot.emotes.error} - L'utilisateur n'existe pas`)
+    if(!muteUser) return message.channel.send(`${bot.config.emojis.error} - L'utilisateur n'existe pas`)
     let muteRole = message.guild.roles.cache.find(m => m.name == "muted");
 
     

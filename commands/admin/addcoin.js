@@ -1,4 +1,4 @@
-const {MESSAGES} = require("../../util/constants")
+const {commands} = require("../../util/constants")
 
 module.exports.run = async (bot,message,args,settings,settingsUser,translate) =>{
     const user = await bot.getMember(message, args[0]);
@@ -8,4 +8,4 @@ module.exports.run = async (bot,message,args,settings,settingsUser,translate) =>
     message.channel.send(translate("ADD_COINS_SUCCESS_ADMIN",bot,coinToAdd,user))
 }
 
-module.exports.help = MESSAGES.COMMANDS.ADMIN.ADDMONNEY;   
+module.exports.help = commands.MESSAGES.COMMANDS.ADMIN.ADDMONNEY;   

@@ -4,12 +4,12 @@ const { MESSAGES } = require("../../util/constants")
 module.exports.run = async (bot, message, args, settings) => {
 
     let warnUser = message.mentions.members.first();
-    if (!warnUser) return message.channel.send(`${bot.emotes.error} -  L'utilisateur n'existe pas`)
+    if (!warnUser) return message.channel.send(`${bot.config.emojis.error} -  L'utilisateur n'existe pas`)
     let warnReson = args.join(" ").slice(22) || 'Aucune raison spécifiée';
 
     const settingsUser2 = await bot.getUser(message.guild, warnUser.id);
 
-    if (!settingsUser2) return message.channel.send(`${bot.emotes.error} - Cette personne n'a pas encore crée de compte`);
+    if (!settingsUser2) return message.channel.send(`${bot.config.emojis.error} - Cette personne n'a pas encore crée de compte`);
 
 
     let actuWarn = settingsUser2.useWarn;
@@ -38,11 +38,11 @@ module.exports.run = async (bot, message, args, settings) => {
             logChannel.send(warnEmbed)
         }
         else {
-            message.channel.send(`${bot.emotes.success} - ${warnUser} a été unwarn pour :\n\`${warnReson}\``)
+            message.channel.send(`${bot.config.emojis.success} - ${warnUser} a été unwarn pour :\n\`${warnReson}\``)
         }
     }
     else {
-        return message.channel.send(`${bot.emotes.error} - Cette personne n'a pas encore de warn`)
+        return message.channel.send(`${bot.config.emojis.error} - Cette personne n'a pas encore de warn`)
     }
 }
 

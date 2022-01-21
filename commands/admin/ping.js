@@ -6,7 +6,7 @@ module.exports.run = async (bot, message) => {
   const ping = Math.round(msg.createdTimestamp - message.createdTimestamp);
 
   if (ping <= 0) {
-    return msg.edit(`${bot.emotes.error} - Erreur`);
+    return msg.edit(`${bot.config.emojis.error} - Erreur`);
   }
 
   return msg.edit(

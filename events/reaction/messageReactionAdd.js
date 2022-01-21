@@ -20,7 +20,7 @@ module.exports = async (bot, reaction, user) => {
           }
           else {
             message.delete()
-            message.channel.send(`${bot.emotes.error} - Ce message est désactivé`)
+            message.channel.send(`${bot.config.emojis.error} - Ce message est désactivé`)
           }
         }
         //Si c est un ticket
@@ -33,7 +33,7 @@ module.exports = async (bot, reaction, user) => {
           switch (reaction.emoji.name) {
             case "📑":
               reaction.users.remove(user);
-              if (settings.guiCategoryTicket == null) return message.channel.send(`${bot.emotes.error} - Pas de catégorie sélectionner`)
+              if (settings.guiCategoryTicket == null) return message.channel.send(`${bot.config.emojis.error} - Pas de catégorie sélectionner`)
               let categoryID = settings.guiCategoryTicket;
               let channel = await message.guild.channels.create(`Ticket - ${user.username}`, { type: 'text', parent: message.guild.channels.cache.get(categoryID) });
 

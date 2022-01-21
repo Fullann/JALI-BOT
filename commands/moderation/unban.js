@@ -8,10 +8,10 @@ module.exports.run = async (bot,message,args,settings,settingsUser,queue) => {
         banUser =  await bot.users.fetch(args[0]);
     }
     catch{
-        return message.reply(`${bot.emotes.error} - Veuilliez mettre un id`)
+        return message.reply(`${bot.config.emojis.error} - Veuilliez mettre un id`)
     }
     
-    if(!banUser) return message.channel.send(`${bot.emotes.error} - L'utilisateur n'existe pas`)
+    if(!banUser) return message.channel.send(`${bot.config.emojis.error} - L'utilisateur n'existe pas`)
 
     let banEmbed =new Discord.MessageEmbed()
     .setAuthor(`[ UNBAN ] ${banUser.tag}`, banUser.displayAvatarURL())
@@ -22,7 +22,7 @@ module.exports.run = async (bot,message,args,settings,settingsUser,queue) => {
 
     let Embed =new Discord.MessageEmbed()
     .setColor(bot.config.color.add)
-    .setDescription(`**${bot.emotes.success} - ${banUser.tag} a été n'est plus banni**`)
+    .setDescription(`**${bot.config.emojis.success} - ${banUser.tag} a été n'est plus banni**`)
     .setTimestamp()
     .setAuthor(`[ UNBAN ] ${banUser.tag}`, banUser.displayAvatarURL())
     .setFooter(`ID : ${banUser.id}`)

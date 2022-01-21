@@ -5,17 +5,17 @@ module.exports.run = async (client,message,args) =>{
 	let temp = args[1];
 
 	if (!uses) {
-		return message.reply(`${bot.emotes.error} - Vous avez oubliez de mettre le nombre de personne qui peuvent l'utiliser`);
+		return message.reply(`${bot.config.emojis.error} - Vous avez oubliez de mettre le nombre de personne qui peuvent l'utiliser`);
 	}
 	if (!temp) {
-		message.reply(`${bot.emotes.error} - Il manque le temps avant la destruction de l'invitation...`);
+		message.reply(`${bot.config.emojis.error} - Il manque le temps avant la destruction de l'invitation...`);
 		temp = await 0;
 	}
 
 	uses = await uses.toString();
 
 	if (uses.indexOf('.') !== -1) {
-		return message.reply(`${bot.emotes.error} - Comment tu veux inviter une demi personne :confused:`);
+		return message.reply(`${bot.config.emojis.error} - Comment tu veux inviter une demi personne :confused:`);
 	}
 
 	temp = await temp.toString();

@@ -1,10 +1,10 @@
 const languageData = {
-    ADD_COINS_SUCCESS_ADMIN : (bot,coinToAdd,user)=> `${bot.emotes.success} - Vous avez ajouter ${coinToAdd} coins a ${user}.`,
-    ADD_XP_SUCCESS : (bot,xp,user)=> `${bot.emotes.success} - Vous avez ajouter ${xp} xp a ${user}.`,
-    DAILY_SUCCESS : (bot,coins) => `${bot.emotes.success} - Tu as reçu ${coins} pieces.`,
+    ADD_COINS_SUCCESS_ADMIN : (bot,coinToAdd,user)=> `${bot.config.emojis.success} - Vous avez ajouter ${coinToAdd} coins a ${user}.`,
+    ADD_XP_SUCCESS : (bot,xp,user)=> `${bot.config.emojis.success} - Vous avez ajouter ${xp} xp a ${user}.`,
+    DAILY_SUCCESS : (bot,coins) => `${bot.config.emojis.success} - Tu as reçu ${coins} pieces.`,
     LEADERBOARD_TITLE : (i,message) => `Top ${i} du serveur ${message.guild.name}`,
-    ADD_COINS_SUCCESS : (bot,message,args,user) => `${bot.emotes.success} - ${message.author} a donné ${args[1]} coins à ${user} .`,
-    SEND_MP : (bot) => `${bot.emotes.success} - Message envoyée en mp`,
+    ADD_COINS_SUCCESS : (bot,message,args,user) => `${bot.config.emojis.success} - ${message.author} a donné ${args[1]} coins à ${user} .`,
+    SEND_MP : (bot) => `${bot.config.emojis.success} - Message envoyée en mp`,
 
     /*CATEGORIE_COMMANDES*/
     CATEGORIE_ADMIN : "⛔ - ADMIN - ⛔",
@@ -18,16 +18,16 @@ const languageData = {
     CATEGORIE_UTILS : "🔨 - UTILITAIRE - 🔨",
     CATEGORIE_PERSO : "🪐 - COMMANDE PERSONALISÉE - 💫",
     /*MSG_ERROR*/
-    NO_ACCOUNT : (bot,message) => `${bot.emotes.error} - Cette personne n'a pas encore crée de compte ${bot.config.name} pour le serveur ${message.guild.name}`,
-    NOT_ENOUGH_MONEY : (bot) => `${bot.emotes.error} - Tu n'as pas assez d'argent`,
-    TIME_TO_WAITE : (bot,cdTime) => `${bot.emotes.time} - Il reste ${Math.floor(cdTime / (1000 * 60 * 60) % 24)} hrs, ${Math.floor(cdTime / (1000 * 60) % 60)}min, ${Math.floor(cdTime / (1000) % 60)}sec avant de pouvoir avoir de l'argent`,
-    NO_AMOUNT:(bot) => `${bot.emotes.error} - Il manque l'argent à ajouter`,
-    NO_XP:(bot) => `${bot.emotes.error} - Il manque le nombre d'xp`,
+    NO_ACCOUNT : (bot,message) => `${bot.config.emojis.error} - Cette personne n'a pas encore crée de compte ${bot.config.name} pour le serveur ${message.guild.name}`,
+    NOT_ENOUGH_MONEY : (bot) => `${bot.config.emojis.error} - Tu n'as pas assez d'argent`,
+    TIME_TO_WAITE : (bot,cdTime) => `${bot.config.emojis.time} - Il reste ${Math.floor(cdTime / (1000 * 60 * 60) % 24)} hrs, ${Math.floor(cdTime / (1000 * 60) % 60)}min, ${Math.floor(cdTime / (1000) % 60)}sec avant de pouvoir avoir de l'argent`,
+    NO_AMOUNT:(bot) => `${bot.config.emojis.error} - Il manque l'argent à ajouter`,
+    NO_XP:(bot) => `${bot.config.emojis.error} - Il manque le nombre d'xp`,
     /*POKEMON*/
     POKEMON_TYPE : "Type",
     POKEMON_WEIGHT : "Poid",
     POKEMON_XP : "Expérience de base",
-    NO_POKEMON : (bot,pokemon) => `${bot.emotes.error} - ${pokemon} n'a pas été trouvé.`,
+    NO_POKEMON : (bot,pokemon) => `${bot.config.emojis.error} - ${pokemon} n'a pas été trouvé.`,
     /*BOT_INFO*/
     BOT_TITLE : (bot) => `Information sur ${bot.config.name}`,
     BOT_ABRE : 'Abréviation',

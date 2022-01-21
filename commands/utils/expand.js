@@ -6,7 +6,7 @@ module.exports.run = async (client,message,args) =>{
 	const w = new Bypasser(args[0]);
 	w.decrypt(function(err, result) {
 		if (err) {
-			message.channel.send(`${bot.emotes.error} - Nous avons rencontrer un problème avec votre URL`);
+			message.channel.send(`${bot.config.emojis.error} - Nous avons rencontrer un problème avec votre URL`);
 			return;
 		}
 

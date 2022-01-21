@@ -4,8 +4,8 @@ module.exports.run = async (client,message,args) =>{
 	let time = args[0];
 	let reminder = args.splice(1).join(' ');
 
-	if (!time) return message.reply(`${bot.emotes.error} - Il manque le temps`);
-	if (!reminder) return message.reply(`${bot.emotes.error} - Tu as oublier de mettre ce que je dois te rappler`);
+	if (!time) return message.reply(`${bot.config.emojis.error} - Il manque le temps`);
+	if (!reminder) return message.reply(`${bot.config.emojis.error} - Tu as oublier de mettre ce que je dois te rappler`);
 
 	time = await time.toString();
 
@@ -24,7 +24,7 @@ module.exports.run = async (client,message,args) =>{
 		let timeday = await time.replace(/d.*/, '');
 		timems = await timeday * 60 * 60 * 24 * 1000;
 	}	else {
-		return message.channel.send(`${bot.emotes.error} - Le temps doit être en format => <number>[s/m/h/d]`);
+		return message.channel.send(`${bot.config.emojis.error} - Le temps doit être en format => <number>[s/m/h/d]`);
 	}
 
 	message.reply(`Dans \`${time}\` je te rapellerais de \`${reminder}\``);

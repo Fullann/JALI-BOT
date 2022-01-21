@@ -4,14 +4,14 @@ const {MESSAGES} = require("../../util/constants")
 
 module.exports.run = async (bot,message,args,settings,settingsUser,queue) => {
 
-    if(!args[0]) return message.channel.send(`${bot.emotes.error} - Entrez des chiffre`)
+    if(!args[0]) return message.channel.send(`${bot.config.emojis.error} - Entrez des chiffre`)
         let calcul;
     
         try{
             calcul = math.evaluate (args)
         }
         catch (e){
-            return message.channel.send(`${bot.emotes.error} - Veuiliez entrer des chiffres valide`)
+            return message.channel.send(`${bot.config.emojis.error} - Veuiliez entrer des chiffres valide`)
         }
     
         let mathEmbed =new Discord.MessageEmbed()

@@ -2,13 +2,13 @@ const {MESSAGES} = require("../../util/constants")
 
 module.exports.run = async (bot,message,args) =>{
 
-        if (!bot.player.getQueue(message)) return message.channel.send(`${bot.emotes.error} - Aucune musique n'est lancée !`);
+        if (!bot.player.getQueue(message)) return message.channel.send(`${bot.config.emojis.error} - Aucune musique n'est lancée !`);
 
         const filtersStatuses = [[], []];
 
-        bot.filters.forEach((filterName) => {
+        bot.config.filters.forEach((filterName) => {
             const array = filtersStatuses[0].length > filtersStatuses[1].length ? filtersStatuses[1] : filtersStatuses[0];
-            array.push(filterName.charAt(0).toUpperCase() + filterName.slice(1) + " : " + (bot.player.getQueue(message).filters[filterName] ? bot.emotes.success : bot.emotes.off));
+            array.push(filterName.charAt(0).toUpperCase() + filterName.slice(1) + " : " + (bot.player.getQueue(message).filters[filterName] ? bot.config.emojis.success : bot.config.emojis.off));
         });
 
         message.channel.send({

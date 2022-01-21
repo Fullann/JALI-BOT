@@ -25,7 +25,7 @@ module.exports.run =  async (bot,message,args,settings,settingsUser,queue) => {
   }
    
   logChannel.send(askEmbed);
-  message.channel.send(`${bot.emotes.success} - Votre demande a été envoyée`)
+  message.channel.send(`${bot.config.emojis.success} - Votre demande a été envoyée`)
 }
 
 module.exports.help = MESSAGES.COMMANDS.MODE.ASK;
